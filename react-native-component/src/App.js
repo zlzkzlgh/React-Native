@@ -6,6 +6,7 @@ import ToggleText from "./components/Toggle";
 import Total from "./components/Total";
 import ItemList from "./components/ItemList";
 import EventButton from "./components/EventButton";
+import EventInput from "./components/Eventout";
 
 const App = () => {
 
@@ -35,6 +36,7 @@ const App = () => {
             <Total arr={arr} />
             <ItemList item = {fruits} /> */}
             <EventButton />
+            <EventInput />
         </View>
     )
 }
