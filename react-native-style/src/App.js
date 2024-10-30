@@ -34,11 +34,12 @@ export default function App() {
     //     <ShadowBox />
     //     <StyledComponent />
     //     <Button />
-    // </ScrollView>
     <Container>
-        <Button title = "Hanbit" />
-        <Button title = "React Native" />
+    <Button title = "Hanbit" />
+    <Button title = "React Native" />
     </Container>
+    // </ScrollView>
+
     );
   }
 
