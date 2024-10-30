@@ -4,6 +4,9 @@ import { textStyles,viewStyles } from "./styles";
 import { Header,Contents,Footer } from "./components/Layout";
 import FlexDirectionTest from "./components/flexDirectionTest";
 import JustifyContent from "./components/justifyContentTest";
+import AlignItemsTest from "./components/AlignItemsTest";
+import ShadowBox from "./components/ShadowBox";
+import { StyledComponent } from "./components/StyledComponent";
 
 export default function App() {
     return (
@@ -17,6 +20,9 @@ export default function App() {
         <Footer />
         <FlexDirectionTest />
         <JustifyContent />
+        <AlignItemsTest />
+        <ShadowBox />
+        <StyledComponent />
     </ScrollView>
     );
   }

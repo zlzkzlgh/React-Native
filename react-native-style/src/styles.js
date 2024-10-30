@@ -43,8 +43,8 @@ export const box_styles = StyleSheet.create({
         marginBottom: 20,
     },
     box: {
-        width: 50,
-        height: 50,
+        // width: 50,
+        // height: 50,
         backgroundColor: '#3498db',
         justifyContent: 'center',
         alignItems: 'center',
