@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styled from "styled-components";
+import styled, { isStyledComponent } from "styled-components";
 
 
 //사용법
@@ -25,17 +25,18 @@ const StyledButton = styled.Pressable`
     margin-top: 10px;
 `
 const ButtonText = styled.Text`
-    color: white,
+    color: white;
     font-size: 16px;
 `
-export const StyledComponent = () => {
+const StyledComponent = () => {
     const[count,setCount] = useState(0);
     return( 
         <Container>
             <Title>Styled components Example</Title>
-            <StyledButton onPress={() => setCount(prev => setCount(prev+1))}>
+            <StyledButton onPress={() => setCount(count+1)}>
                 <ButtonText>Click count: {count}</ButtonText>
             </StyledButton>
         </Container>
     );
 }
+export default StyledComponent;
