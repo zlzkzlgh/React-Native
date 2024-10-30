@@ -1,5 +1,5 @@
 import React ,{useState} from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
 import MyButton from "./components/MyComponent";
 import Counter from "./components/Counter";
 import ToggleText from "./components/Toggle";
@@ -7,6 +7,7 @@ import Total from "./components/Total";
 import ItemList from "./components/ItemList";
 import EventButton from "./components/EventButton";
 import EventInput from "./components/Eventout";
+import Button from "./components/PressAbleTest";
 
 const App = () => {
 
@@ -35,8 +36,9 @@ const App = () => {
             <ToggleText />
             <Total arr={arr} />
             <ItemList item = {fruits} /> */}
-            <EventButton />
-            <EventInput />
+            {/* <EventButton />
+            <EventInput /> */}
+            <Button title="Pressable"></Button>
         </View>
     )
 }
