@@ -9,7 +9,7 @@ import ShadowBox from "./components/ShadowBox";
 import StyledComponent from "./components/StyledComponent";
 import Button from "./components/Button";
 import styled from "styled-components";
-
+import SignUp from "./components/Signup";
 
 const Container = styled.View`
     flex: 1;
@@ -34,12 +34,12 @@ export default function App() {
     //     <ShadowBox />
     //     <StyledComponent />
     //     <Button />
-    <Container>
-    <Button title = "Hanbit" />
-    <Button title = "React Native" />
-    </Container>
+    // <Container>
+    // <Button title = "Hanbit" />
+    // <Button title = "React Native" />
+    // </Container>
     // </ScrollView>
-
+    <SignUp />
     );
   }
 
