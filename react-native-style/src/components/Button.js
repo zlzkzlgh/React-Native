@@ -18,7 +18,7 @@ const Title = styled.Text`
 
 const Button = (props) => {
     return(
-        <ButtonContainer>
+        <ButtonContainer title={props.title}>
             <Title>{props.title}</Title>
         </ButtonContainer>
     )
