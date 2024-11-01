@@ -18,7 +18,11 @@ const StyledInput = styled.TextInput.attrs(({theme}) => ({
 `
 
 //props props.placeholder or {placeholder}
-const Input = ({placeholder, value, onChangeText, onSubmitEditing}) => {
+const Input = ({placeholder, 
+                value, 
+                onChangeText, 
+                onSubmitEditing, 
+                onBlur}) => {
     const width = Dimensions.get('window').width;
     return (
         <StyledInput width={width} 
@@ -30,8 +34,8 @@ const Input = ({placeholder, value, onChangeText, onSubmitEditing}) => {
         keyboardAppearance="dark" // iOS only
         value={value}
         onChangeText={onChangeText}
-        onSubmitEditing={onSubmitEditing}/>
-        
+        onSubmitEditing={onSubmitEditing}
+        onBlur={onBlur}/>  
     )
 }
 
@@ -40,7 +44,8 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     value: PropTypes.string.isRequired,
     onChangeText: PropTypes.func.isRequired,
-    onSubmitEditing: PropTypes.func.isRequired
+    onSubmitEditing: PropTypes.func.isRequired,
+    onBlur:PropTypes.func.isRequired,
     }
     
 export default Input;

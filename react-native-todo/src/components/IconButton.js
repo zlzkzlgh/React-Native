@@ -5,23 +5,32 @@ import PropTypes from 'prop-types';
 import { images } from '../Image';
 
 const Icon = styled.Image`
-  tint-color: ${({ theme}) => theme.text};
+  tint-color: ${({theme,completed}) => (completed ? theme.done : theme.text)};
   width: 30px;
   height: 30px;
   margin: 10px;
 `
 
-const IconButton = ({ type, onPressOut}) => {
+const IconButton = ({ type, onPressOut, id, completed}) => {
+
+    const _onPressOut = () => {
+      onPressOut(id);
+    }
+
     return (
-      <Pressable onPressOut={onPressOut}>
-        <Icon source={type} />
+      <Pressable onPressOut={_onPressOut}>
+        <Icon source={type} completed={completed} />
       </Pressable>
     )
   }
 
+//propTypes
+//컴포넌트의 props가 예상된 타입을 따르는지 검사
 IconButton.propTypes = {
     type: PropTypes.oneOf(Object.values(images)).isRequired,
-    onPressOut: PropTypes.func
+    onPressOut: PropTypes.func,
+    id:PropTypes.string,
+    completed:PropTypes.bool,
   }
   
 export default IconButton;
