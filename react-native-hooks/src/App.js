@@ -4,6 +4,7 @@ import Counter from './components/Counter'
 import Form from './components/Form'
 import Button from './components/Button'
 import Timer from './components/Timer'
+import Length from './components/Length'
 
 const Container = styled.View`
     flex:1;
@@ -23,7 +24,8 @@ const App = () => {
         title={isVisible ? 'Hide' : 'Show'}
         onPress={() => setIsVisible(prev => !prev)}
         /> */}
-        <Timer />
+        {/* <Timer /> */}
+        <Length />
     </Container>)
 }
 
