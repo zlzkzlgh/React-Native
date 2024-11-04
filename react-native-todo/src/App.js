@@ -3,11 +3,8 @@ import styled,{ThemeProvider} from "styled-components";
 import { theme } from "./theme";
 import { StatusBar, Dimensions } from "react-native";
 import Input from "./components/Input";
-import IconButton from "./components/IconButton";
-import { images } from "./Image"; 
 import Task from "./components/Task";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as SplashScreen from 'expo-splash-screen'
 
 const Container = styled.SafeAreaView`
     flex: 1;
@@ -35,18 +32,7 @@ export default function App(){
 
     const[tasks, setTasks] = useState({})
 
-    useEffect(() => {
-        async function prepare(){
-            //스플래쉬 화면 유지
-            await SplashScreen.preventAutoHideAsync();
-            //필요한 데이터 로딩 작업 수행
-            _loadTask();
-            //로딩 후 스플래시 화면 숨김
-            await SplashScreen.hideAsync();
-        }
-        prepare();
-    },[])
-
+    //내용을 저장하는 메서드
     const _saveTasks = async tasks => {
         try{
             //JSON.stringify : 문자열을 JSON 형식으로 변환
@@ -59,14 +45,19 @@ export default function App(){
     const _loadTask = async () => {
         const loadTasks = await AsyncStorage.getItem('tasks');
         //JSON.parse : JSON형식을 JS객체로 변환
-        setTasks(JSON.parse(loadTasks|| '{}'))
+        setTasks(JSON.parse(loadTasks|| '{}'));
     }
+
+
 
     const width = Dimensions.get('window').width;
 
     const _handleTextChange = text => {
         setNewTask(text);
     }
+
+
+
 
     //Todo를 추가하는 함수
     const _addTask = () => {
@@ -111,6 +102,10 @@ export default function App(){
     const _onBlur = () => {
         setNewTask('');
     }
+
+    useEffect(() => {
+        _loadTask();
+    },[tasks])
 
 
     return (
