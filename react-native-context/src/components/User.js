@@ -1,6 +1,7 @@
-import React from "react";
+import React,{useContext} from "react";
 import styled from "styled-components";
-import UserContext from "../contexts/User";
+import UserContext,{UserConsumer} from "../contexts/User";
+
 
 const StyledText = styled.Text`
     font-size:24px;
@@ -8,11 +9,8 @@ const StyledText = styled.Text`
 `
 
 const User = () => {
-    return(
-        <UserContext.Consumer>
-            {value => <StyledText>Name: {value.name}</StyledText>}
-        </UserContext.Consumer>
-    )
+    const {user} = useContext(UserContext);
+    return <StyledText>Name: {user.name}</StyledText>
 }
 
 export default User;
