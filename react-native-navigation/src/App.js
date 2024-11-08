@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import BookStackNavigation from './navigations/BookStack';
 import StackNavigation from './navigations/Stack'
 import UserStackNavigator from './navigations/UserStack';
+import TabNavigation from './navigations/Tab';
+import ShoppingNavigation from './navigations/Shopping';
 
 // const Container = styled.View`
 //     flex : 1;
@@ -14,7 +16,7 @@ import UserStackNavigator from './navigations/UserStack';
 const App = () => {
     return(
         <NavigationContainer>
-            <UserStackNavigator />
+            <ShoppingNavigation />
         </NavigationContainer>
     )
 }

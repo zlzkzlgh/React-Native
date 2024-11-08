@@ -1,67 +1,66 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Mail, Meet, Settings } from '../screens/TabScreens';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { HomeScreen,CartScreen,ProfileScreen } from '../screens/ShoppingScreen';
 
 const Tab = createBottomTabNavigator();
 
-//이름,크기,색깔만 주면 아이콘 컴포넌트를 만들어주는 함수
 const TabIcon = ({ color, size, name }) => {
   return <MaterialCommunityIcons name={name} size={size} color={color} />;
 };
 
-const TabNavigation = () => {
+const ShoppingNavigation = () => {
     return (
       <Tab.Navigator
-      initialRouteName='Settings'
+      initialRouteName='HomeScreen'
       screenOptions={({route}) => ({
         tabBarIcon : props => {
           let name = '';
-          if(route.name === 'Mail') name = 'email';
-          else if(route.name === 'Meet') name = 'video';
-          else name = 'cog'
+          if(route.name === 'Home') name = 'home';
+          else if(route.name === 'Cart') name = 'cart';
+          else name = 'account'
           return TabIcon({...props,name})
         },
         tabBarLabelPosition:'beside-icon',
         tabBarShowLabel:false,
         tabBarStyle:{
-          backgroundColor:'#54b7f9',
-          borderTopColor:'#ffffff',
-          borderTopWidth:2,
+          backgroundColor:'#ffffff',
+        //   borderTopColor:'#ffffff',
+        //   borderTopWidth:2,
         },
-        tabBarActiveTintColor:'#ffffff',
-        tabBarInactiveTintColor:'#0b92e9',
+        tabBarActiveTintColor:'#0b92e9',
+        tabBarInactiveTintColor:'grey',
       })}>
         <Tab.Screen 
-          name="Mail" 
-          component={Mail}
+          name="HomeScreen" 
+          component={HomeScreen}
           options={{
-            tabBarLabel:'Inbox',
+            tabBarLabel:'Home',
             tabBarIcon:props => 
               TabIcon({
-                ...props, name:props.focused ? 'email' : 'email-outline',
+                ...props, name:props.focused ? 'home' : 'home-outline',
               })
           }}
         />
         <Tab.Screen 
-          name="Meet" 
-          component={Meet}
+          name="CartScreen" 
+          component={CartScreen}
           options={{
-            tabBarLabel:'Inbox',
+            tabBarLabel:'Cart',
             tabBarIcon:props => 
               TabIcon({
-                ...props, name:props.focused ? 'video' : 'video-outline',
+                ...props, name:props.focused ? 'cart' : 'cart-outline',
               })
           }} 
         />
         <Tab.Screen 
-          name="Settings" 
-          component={Settings}
+          name="ProfileScreen" 
+          component={ProfileScreen}
           options={{
-            tabBarLabel:'Inbox',
+            tabBarLabel:'Profile',
             tabBarIcon:props => 
               TabIcon({
-                ...props, name:props.focused ? 'cog' : 'cog-outline',
+                ...props, name:props.focused ? 'account' : 'account-outline',
               })
           }} 
         />
@@ -69,4 +68,4 @@ const TabNavigation = () => {
     );
   };
 
-  export default TabNavigation;
+  export default ShoppingNavigation;
