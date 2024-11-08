@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Mail, Meet, Settings } from '../screens/TabScreens';
 
+//1.Tab 네비게이션 생성
 const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
