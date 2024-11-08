@@ -1,89 +1,21 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import { Platform, TouchableOpacity } from "react-native";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import MainScreen from '../screens/BookMainScreen';
+import BookListScreen from '../screens/BookListScreen';
+import BookDetailScreen from '../screens/BookDetailScreen';
 
-import BookHome from "../screens/BookMainScreen";
-import BookListScreen from "../screens/BookListScreen";
-import BookItem from "../screens/BookItem";
-
+//1. 스택을 만든다.
 const Stack = createStackNavigator();
 
 const BookStackNavigation = () => {
-    return (
-        <Stack.Navigator
-            initialRouteName='Home'
-            screenOptions={{
-                cardStyle: { backgroundColor: '#ffffff' },
-                headerStyle: {
-                    height: 110,
-                    backgroundColor: '#95a5a6',
-                    borderBottomWidth: 5,
-                    borderBottomColor: '#34495e',
-                },
-                headerTitleStyle: { color: '#ffffff', fontSize: 24 },
-                headerTitleAlign: 'center',
-                headerTitle: ({ style }) => (
-                    <MaterialCommunityIcons name="react" style={style} />
-                )
-            }}
-        >
-            <Stack.Screen 
-                name="Home" 
-                component={BookHome} 
-                options={{ headerMode: 'none' }} 
-            />
-            <Stack.Screen 
-                name="List" 
-                component={BookListScreen} 
-                options={{
-                    headerTitle: 'List Screen',
-                    headerBackTitleVisible: true,
-                    headerBackTitle: 'Prev',
-                    headerTitleStyle: { fontSize: 24 },
-                    headerTintColor: '#e74c3c',
-                    headerBackImage: ({ tintColor }) => {
-                        const style = {
-                            marginRight: 5,
-                            marginLeft: Platform.OS === 'ios' ? 11 : 0,
-                        };
-                        return (
-                            <MaterialCommunityIcons
-                                name="keyboard-backspace"
-                                size={30}
-                                color={tintColor}
-                                style={style}
-                            />
-                        )
-                    }
-                }} 
-            />
-            <Stack.Screen 
-                name="Detail" 
-                component={BookItem}
-                options={({ navigation }) => ({
-                    headerTitle: () => (
-                        <MaterialCommunityIcons 
-                            name="react" 
-                            size={30}
-                            color="#ffffff"
-                        />
-                    ),
-                    headerRight: () => (
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Home')}
-                            style={{ marginRight: 15 }}
-                        >
-                            <MaterialCommunityIcons
-                                name="home"
-                                size={30}
-                                color="#ffffff"
-                            />
-                        </TouchableOpacity>
-                    )
-                })}
-            />
-        </Stack.Navigator>
+    return(
+    // 2. 화면을 담기 위한 Navigator를 만든다.
+    <Stack.Navigator>
+        {/* 3. 화면을 담는다 */}
+        <Stack.Screen name="BookMain" component={MainScreen} />
+        <Stack.Screen name="BookList" component={BookListScreen}/>
+        <Stack.Screen name="BookDetail" component={BookDetailScreen}/>
+    </Stack.Navigator>
     )
 }
 

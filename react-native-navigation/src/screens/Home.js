@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'react-native';
+import {Button} from 'react-native'
 import styled from 'styled-components';
 
 const Container = styled.SafeAreaView`
-    background-color:#ffffff;
+    background-color: #ffffff;
     align-items: center;
 `
 const StyledText = styled.Text`
@@ -11,15 +11,15 @@ const StyledText = styled.Text`
     margin-bottom: 10px;
 `
 
-const Home = ({ navigation }) => {
-  return (
-    <Container>
-      <StyledText>Home</StyledText>
-      <Button 
-        title="go to the list screen"
-        onPress={() => navigation.navigate('List')}/>
-    </Container>
-  );
-};
+const Home = ({navigation}) => {
+    return(
+        <Container>
+            <StyledText>Home</StyledText>
+            <Button 
+                title="go to the list screen"
+                onPress={()=>navigation.navigate('List')}/>
+        </Container>
+    )
+}
 
 export default Home;

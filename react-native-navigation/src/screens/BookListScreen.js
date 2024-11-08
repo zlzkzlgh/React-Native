@@ -1,51 +1,39 @@
 import React from 'react';
-import { Button, View } from 'react-native';
-import styled from 'styled-components/native';
+import { Pressable } from 'react-native';
+import { Text,View, ScrollView } from 'react-native';
 
-const Container = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;
 
-const StyledText = styled.Text`
-    font-size: 30px;
-    margin-bottom: 10px;
-`;
+const BookListScreen = ({navigation}) => {
+    const books = [
+        {id:'1', title: '홍길동전', description: '이것은 홍길동전의 설명입니다.'},
+        {id:'2', title: '콩쥐팥쥐', description: '이것은 콩쥐팥쥐의 설명입니다.'},
+        {id:'3', title: '신데렐라', description: '이것은 신데렐라의 설명입니다.'},
+        {id:'4', title: '우투리전', description: '이것은 우투리전의 설명입니다.'},
+        {id:'5', title: '운수좋은날', description: '이것은 운수좋은날의 설명입니다.'},
+    ]
 
-const ButtonContainer = styled.View`
-    width: 80%;
-    margin-bottom: 10px;
-`;
-
-const book = [
-    { _id: 1, name: '홍길동전', description: '이것은 홍길동전의 설명입니다' },
-    { _id: 2, name: '콩쥐팥쥐', description: '이것은 콩쥐팥쥐의 설명입니다' },
-    { _id: 3, name: '신데렐라', description: '이것은 신데렐라의 설명입니다' },
-];
-
-const BookListScreen = ({ navigation }) => {
-    const _onPress = (item) => {
-        navigation.navigate('Detail', { 
-            id: item._id, 
-            name: item.name,
-            description: item.description  // description 추가
-        });
-    };
-
-    return (
-        <Container>
-            <StyledText>도서 목록</StyledText>
-            {book.map(item => (
-                <ButtonContainer key={item._id}>
-                    <Button
-                        title={item.name}
-                        onPress={() => _onPress(item)}
-                    />
-                </ButtonContainer>
+    return(
+        <ScrollView style={{flex : 1, padding:20}}>
+            <Text>도서목록</Text>
+            {books.map((item)=>(
+                <View
+                    key={item.id}
+                    style={{
+                        padding: 10,
+                        borderBottomWidth: 1,
+                        marginBottom: 10,
+                    }}
+                >
+                    <Text style={{fontSize:18, marginBottom:5}}>{item.title}</Text>
+                    <Pressable
+                        onPress={() => navigation.navigate('BookDetail',{title:item.title,description:item.description})}
+                    >
+                        <Text>상세보기</Text>
+                    </Pressable>
+                </View>
             ))}
-        </Container>
-    );
-};
+        </ScrollView>
+    )
+}
 
 export default BookListScreen;
