@@ -5,6 +5,7 @@ import StackNavigation from './navigations/Stack'
 import UserStackNavigator from './navigations/UserStack';
 import TabNavigation from './navigations/Tab';
 import ShoppingNavigation from './navigations/Shopping';
+import ChatTapNavigator from './navigations/ChatTab';
 
 // const Container = styled.View`
 //     flex : 1;
@@ -16,7 +17,7 @@ import ShoppingNavigation from './navigations/Shopping';
 const App = () => {
     return(
         <NavigationContainer>
-            <ShoppingNavigation />
+            <ChatTapNavigator />
         </NavigationContainer>
     )
 }
