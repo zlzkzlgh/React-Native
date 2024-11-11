@@ -3,10 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import BookStackNavigation from './navigations/BookStack';
 import StackNavigation from './navigations/Stack'
 import UserStackNavigator from './navigations/UserStack';
-import TabNavigation from './navigations/Tab';
-import ShoppingNavigation from './navigations/Shopping';
-import ChatTapNavigator from './navigations/ChatTab';
-
+import TabNavigator from './navigations/Tab';
+import ChatTabNavigator from './navigations/ChatTab';
+import DrawerNavigation from './navigations/Drawer';
 // const Container = styled.View`
 //     flex : 1;
 //     background-color : #ffffff;
@@ -17,7 +16,7 @@ import ChatTapNavigator from './navigations/ChatTab';
 const App = () => {
     return(
         <NavigationContainer>
-            <ChatTapNavigator />
+            <DrawerNavigation />
         </NavigationContainer>
     )
 }
