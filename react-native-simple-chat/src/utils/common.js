@@ -13,7 +13,12 @@ export const validateEmail = email => {
 }
 
 export const removeWhitespace = text => {
-    const regex = /\s/g;
+    const regex = /\s/g; //공백을 찾음
+    // /g를 안쓰면 최초의 공백만 찾고 멈춤
+    //문자열의 모든 공백을 찾으려면 /g까지 써줘야 한다.
+    // /g : 정규표현식이 문자열에서 모든 일치 항목을 찾도록 설정
+
+    return text.replace(regex,'');
 }
 
 
