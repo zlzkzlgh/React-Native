@@ -5,6 +5,8 @@ import * as Font from  'expo-font';//사용자 정의 글꼴을 미리 로드하
 import * as SplashScreen from 'expo-splash-screen'
 import { ThemeProvider } from "styled-components";
 import {theme} from './theme'
+import Navigation from "./navigations";
+import { images } from "./utils/Images";
 
 //스플래시 화면이 자동으로 숨겨지지 않도록 설정하여 초기화 작업이 완료될 때까지 유지
 SplashScreen.preventAutoHideAsync();
@@ -42,7 +44,10 @@ const App = () => {
     },[]);
 
     const _loadAssets = async() => {
-        const imageAssets = cacheImages([require('../assets/splash.png')]);//로컬 스플래시 이미지 캐싱
+        const imageAssets = cacheImages([
+            require('../assets/splash.png'),
+            ...Object.values(images),
+        ]);//로컬 스플래시 이미지 캐싱
         const fontAssets = cacheFonts([]); //추가적인 폰트가 있다면 배열에 추가 가능
 
         await Promise.all([...imageAssets, ...fontAssets]);
@@ -55,6 +60,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
             {/* dark-content 글자와 아이콘이 어두운 색상으로 나온다.*/}
             <StatusBar barStyle='dark-content' />
+            <Navigation />
         </ThemeProvider>
     )
 }

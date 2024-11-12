@@ -51,7 +51,7 @@ const DrawerNavigation = () => {
         <Drawer.Navigator
             drawerContent={(props) => <CustomDrawerContent {...props}/>}
             screenOptions={({navigation})=>({
-                drawerStyle:{
+                drawerStyle:{//서랍의 스타일
                     backgroundColor: '#e6e6e6',//배경색
                     width:240,//drawer 너비
                     borderWidth:5, //drawer 테두리 두께
