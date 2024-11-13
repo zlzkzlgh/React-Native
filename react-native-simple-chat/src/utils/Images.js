@@ -1,5 +1,6 @@
-const prefix = 'https://firebasestorage.googleapis.com/v0/b/react-native-simple-chat-9e22f.firebasestorage.app/o'
+const prefix = 'https://firebasestorage.googleapis.com/v0/b/react-native-simple-chat-13746.firebasestorage.app/o'
 
 export const images = {
-    logo : `${prefix}/logo.png?alt=media`
+    logo : `${prefix}/logo.png?alt=media`,
+    photo : `${prefix}/photo.png?alt=media`,
 }

@@ -6,7 +6,8 @@ import * as SplashScreen from 'expo-splash-screen'
 import { ThemeProvider } from "styled-components";
 import {theme} from './theme'
 import Navigation from "./navigations";
-import { images } from "./utils/Images";
+import { images } from "./utils/images";
+
 
 //스플래시 화면이 자동으로 숨겨지지 않도록 설정하여 초기화 작업이 완료될 때까지 유지
 SplashScreen.preventAutoHideAsync();
