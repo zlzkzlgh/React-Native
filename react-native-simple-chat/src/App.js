@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import {theme} from './theme'
 import Navigation from "./navigations";
 import { images } from "./utils/images";
+import { ProgressProvider, UserProvider } from "./contexts";
 
 
 //스플래시 화면이 자동으로 숨겨지지 않도록 설정하여 초기화 작업이 완료될 때까지 유지
@@ -59,9 +60,13 @@ const App = () => {
     }
     return(
         <ThemeProvider theme={theme}>
-            {/* dark-content 글자와 아이콘이 어두운 색상으로 나온다.*/}
-            <StatusBar barStyle='dark-content' />
-            <Navigation />
+            <UserProvider>
+              <ProgressProvider>
+                {/* dark-content 글자와 아이콘이 어두운 색상으로 나온다.*/}
+                <StatusBar barStyle='dark-content' />
+                <Navigation />
+              </ProgressProvider>
+            </UserProvider>
         </ThemeProvider>
     )
 }

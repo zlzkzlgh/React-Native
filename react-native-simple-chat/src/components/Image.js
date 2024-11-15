@@ -78,7 +78,6 @@ const Image = ({url, imageStyle, rounded, showButton, onChangeImage}) => {
             //result.canceled : 사용자가 이미지를 선택하지 않고 취소한 경우
             //취소하면 true, 취소 안하면 false
             if(!result.canceled){
-                console.log(result.assets);
                 onChangeImage(result.assets[0].uri);
             }
         } catch (error) {
