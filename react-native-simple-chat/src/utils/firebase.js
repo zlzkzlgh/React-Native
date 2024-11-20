@@ -129,19 +129,18 @@ export const createChannel = async ({ title, description }) => {
     return id;
 };
 
-export const createMessage = async({channelId,text}) => {
+//메시지를 데이터베이스에 저장
+export const createMessage = async({channelId, message}) => {
     //특정 채널의 메시지 컬렉션 안에 새로운 메시지 문서의 레퍼런스를 생성
-    
-    const docRef = doc(db,`channels/${channelId}/message`,text);
-    const id = docRef.id;
-    const newMessage = {
-        id,
-        text,
-        createdAt:Date.now(),
-    }
+    const docRef = doc(db, `channels/${channelId}/messages`, message._id)
 
     //생성된 문서 레퍼런스에 메시지 데이터를 저장
-    //기존 메시지 객체의 모든 속성을 복사하고
+    //기존 메시지 객체의 모든 속성을 복사하고 
     //createdAt필드를 현재 시간으로 추가
-    await setDoc(docRef,newMessage);
+    await setDoc(docRef, {
+        ...message, //메시지 내용 
+        createdAt: Date.now() //현재 시간을 타임스탬프로 추가
+    })
+
+    console.log(`Message created with ID: ${docRef.id}`)
 }

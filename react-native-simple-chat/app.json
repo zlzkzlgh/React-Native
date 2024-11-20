@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "react-native-simple-chat",
+    "name": "Simple Chat",
     "slug": "react-native-simple-chat",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,16 +12,27 @@
       "backgroundColor": "#3679fe"
     },
     "ios": {
+      "bundleIdentifier": "com.zlzkzlgh.rnsimplechat",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.zlzkzlgh.rnsimplechat",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ff042fd8-3363-498a-a2f2-9854d4beb4bf"
+      }
+    },
+    "owner": "zlzkzlgh"
   }
 }
