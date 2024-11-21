@@ -3,7 +3,8 @@ import { BoardContext } from "./context/BoardContext"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import BoardList from "./pages/BoardList"
 import WritePost from "./pages/WritePost"
-import PostDetail2 from "./pages/PostDetail2"
+import PostDetail from "./pages/PostDetail"
+import EditPost from "./pages/EditPost"
 
 const App = () => {
   const [boardList, setBoardList] = useState([
@@ -30,7 +31,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<BoardList />}/>
           <Route path="/write" element={<WritePost />}/>
-          <Route path="/post/:id" element={<PostDetail2 />} />
+          <Route path="/post/:id" element={<PostDetail />} />
+          <Route path="/edit/:id" element={<EditPost />} />
         </Routes>
       </Router>
     </BoardContext.Provider>
