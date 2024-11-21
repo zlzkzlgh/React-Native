@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from "react";
 import { BoardContext } from "../context/BoardContext";
 import CustomButton from "../components/CustomButton";
-import CustomInput from "../components/CustomInput";
+import CustomInput from "../components/CusomInput";
 import { useNavigate,useParams } from "react-router-dom";
 
 const EditPost = () => {

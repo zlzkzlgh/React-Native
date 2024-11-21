@@ -1,11 +1,7 @@
 import React from "react"
 import { Button } from "@mui/material"
 
-const CustomButton = ({
-    label, 
-    variant = "contained", 
-    color = "primary",
-    onClick})=>{
+const CustomButton = ({label, variant = "contained", color = "primary",onClick})=>{
       return(
         <Button
             variant={variant}
@@ -14,8 +10,7 @@ const CustomButton = ({
         >
             {label}
         </Button>
-        )
-        
-    }
+      )
+}
 
 export default CustomButton;

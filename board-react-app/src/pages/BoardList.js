@@ -3,10 +3,12 @@ import React, {useState, useEffect,useContext} from 'react'
 import { BoardContext } from '../context/BoardContext'
 import { useNavigate,Link } from 'react-router-dom'
 import '../css/BoardList.css'
+import axios from 'axios'
 
 const BoardList = () => {
 
     const navigate = useNavigate();
+
 
     //Context에서 boardList와 setBoardList를 가져온다.
     const {boardList, setBoardList} = useContext(BoardContext);
@@ -20,10 +22,20 @@ const BoardList = () => {
     //전체 페이지 수를 관리
     const [totalPages, setTotalPages] = useState(1);
 
+    const getBoardList = async() => {
+        try {
+            const response = await axios.get('http://localhost:9090/api/board/all');
+            console.log(response.data);
+            setBoardList(response.data);
+            setTotalPages(Math.ceil(boardList.length/postsPerPage));//총 페이지 수 계산
+        } catch (error) {
+            
+        }
+    }
+
     useEffect(() => {
-        setBoardList(boardList);
-        setTotalPages(Math.ceil(boardList.length / postsPerPage));//총 페이지 수 계산
-    }, [postsPerPage, boardList]);
+        getBoardList();
+    },[postsPerPage,boardList])
 
     // 현재 페이지에서 보여줄 게시글의 마지막 인덱스 계산
     const indexOfLastPost = currentPage * postsPerPage;
@@ -34,18 +46,18 @@ const BoardList = () => {
     //현재 페이지에서 보여줄 게시글만 slice로 추출
     //ex) slice(0,3) 0이상 3미만
     const currentPosts = boardList.slice(indexOfFirstPost,indexOfLastPost);
-    console.log(currentPosts)
-    //현재 페이지 번호를 변경하는 함수
-    const pageinate  = (pageNumber) => setCurrentPage(pageNumber);
 
-    const handleWritePost =() => {
+    //현재 페이지 번호를 변경하는 함수
+    const pageinate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const handleWritePost = () => {
         navigate('/write');
     }
 
     const handlePostsPerPage = (e) => {
-        setPostsPerPage(parseInt(e.target.value));
+        setPostsPerPage(e.target.value);
         setCurrentPage(1);
-      };
+    }
 
     return(
         <div className="board-container">
