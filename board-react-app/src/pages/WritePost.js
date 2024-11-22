@@ -3,6 +3,7 @@ import { BoardContext } from "../context/BoardContext";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../components/CusomInput";
 import CustomButton from "../components/CustomButton";
+import axios from "axios";
 
 const WritePost = () => {
 
@@ -17,17 +18,28 @@ const WritePost = () => {
     const savePost= (e) => {
         e.preventDefault();
 
+    //id는 자동으로 생성
+    //등록날짜는 서버측에서 
     const newPost = {
-            id: boardList.length+1,
             title,
             author,
             content,
-            writingTime: new Date().toISOString().slice(0,16).replace("T", " "), //현재시간
         }
     
-    //새로운 게시글을 배열에 추가
-    setBoardList([newPost,...boardList]);
+    // const response = axios.post('http://localhost:9090/api/board/write',newPost,{
+    //     headers:{
+    //         "Content-Type":"application/json"
+    //     },
+    // })
 
+    const response = axios('http://localhost:9090/api/board/write',{
+        headers:{
+            "Content-Type":"application/json"
+        },
+        data: JSON.stringify(newPost),
+        method:'post',
+    })
+    console.log(response.data);
     //작성 후 메인화면으로 이동하기
     alert("게시물이 등록되었습니다.");
     navigate("/");
