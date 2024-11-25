@@ -1,12 +1,12 @@
-import React,{useState} from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import BoardStack from "./navigation/BoardStack";
-import { BoardContext } from "./context/BoardContext";
-
+import React, {useState} from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import BoardStack from './navigation/BoardStack';
+import { BoardContext } from './context/BoardContext';
+ 
 
 const App = () => {
 
-    const [boardList,setBoardList] = useState([
+    const [boardList, setBoardList] = useState([
         {
           id: '1',
           title: '게시글1',
@@ -31,10 +31,10 @@ const App = () => {
         // 추가 데이터...
       ])
     return(
-        <BoardContext.Provider value={{boardList,setBoardList}}>
-            <NavigationContainer>
+        <BoardContext.Provider value={{boardList, setBoardList}}>
+        <NavigationContainer>
                 <BoardStack />
-            </NavigationContainer>
+        </NavigationContainer>
         </BoardContext.Provider>
     );
 }
